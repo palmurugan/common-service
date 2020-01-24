@@ -7,20 +7,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public interface IGenericService<E, K> {
+public interface IGenericService<D, K> {
 
-    E saveOrUpdate(E entity);
+    D saveOrUpdate(D entity);
 
-    void saveOrUpdateAll(List<E> entities);
+    void saveOrUpdateAll(List<D> entities);
 
-    Page<E> findAll(Pageable pageable);
+    Page<D> findAll(Pageable pageable);
 
-    Stream<E> findAll();
+    Stream<D> findAll();
 
-    Optional<E> findByKey(K id);
+    Optional<D> findByKey(K id);
 
     void remove(K id);
 
-    void removeAll(List<E> entities);
+    void removeAll(List<D> entities);
 
 }

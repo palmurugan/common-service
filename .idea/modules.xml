@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common-service.iml" filepath="$PROJECT_DIR$/common-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../loki/projects/customer-service/customer-service.iml" filepath="$PROJECT_DIR$/../../loki/projects/customer-service/customer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../loki/projects/customer-service/customer-service-core/customer-service-core.iml" filepath="$PROJECT_DIR$/../../loki/projects/customer-service/customer-service-core/customer-service-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../loki/projects/customer-service/customer-service-dto/customer-service-dto.iml" filepath="$PROJECT_DIR$/../../loki/projects/customer-service/customer-service-dto/customer-service-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../loki/projects/customer-service/customer-service-impl/customer-service-impl.iml" filepath="$PROJECT_DIR$/../../loki/projects/customer-service/customer-service-impl/customer-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../loki-reference/product/product.iml" filepath="$PROJECT_DIR$/../loki-reference/product/product.iml" />
+    </modules>
+  </component>
+</project>

@@ -7,7 +7,7 @@ import java.util.List;
  * @param <E>
  * @param <D>
  */
-public interface GenericMapper<E, D> {
+public interface GenericMapper<D, E> {
 
     D toDTO(E entity);
 

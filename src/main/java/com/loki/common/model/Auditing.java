@@ -20,7 +20,7 @@ public class Auditing<U> {
     private static final String ACTIVE = "A";
 
     @CreatedBy
-    @Column(name = "created_by", nullable = false)
+    @Column(name = "created_by", updatable = false, nullable = false)
     private U createdBy;
 
     @CreatedDate
@@ -40,7 +40,7 @@ public class Auditing<U> {
     @Column(name = "status", nullable = false)
     private String status = ACTIVE;
 
-    @PrePersist
+   /* @PrePersist
     public void onPrePersist() {
         this.createdBy = (U) "Administrator";
         this.createdOn = new Date();
@@ -51,7 +51,7 @@ public class Auditing<U> {
     public void onPreUpdate() {
         this.updatedBy = (U) "Administrator";
         this.updatedOn = new Date();
-    }
+    }*/
 
     public U getCreatedBy() {
         return createdBy;

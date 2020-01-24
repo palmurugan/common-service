@@ -1,5 +1,6 @@
 package com.loki.common.service.impl;
 
+import com.loki.common.mapper.GenericMapper;
 import com.loki.common.service.IGenericService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,41 +11,44 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * @author Palmurugan C
  * @param <E>
  * @param <K>
+ * @author Palmurugan C
  */
-public class GenericService<E, K> implements IGenericService<E, K> {
+public class GenericService<D, E, K> implements IGenericService<D, K> {
 
     private PagingAndSortingRepository<E, K> repository;
 
-    public GenericService(PagingAndSortingRepository<E, K> repository) {
+    private GenericMapper<D, E> mapper;
+
+    public GenericService(PagingAndSortingRepository<E, K> repository, GenericMapper<D, E> mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
     @Override
-    public E saveOrUpdate(E entity) {
-        return repository.save(entity);
+    public D saveOrUpdate(D dto) {
+        return mapper.toDTO(repository.save(mapper.toEntity(dto)));
     }
 
     @Override
-    public void saveOrUpdateAll(List<E> entities) {
-        repository.saveAll(entities);
+    public void saveOrUpdateAll(List<D> dtoList) {
+        repository.saveAll(mapper.toEntityList(dtoList));
     }
 
     @Override
-    public Page<E> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+    public Page<D> findAll(Pageable pageable) {
+        return repository.findAll(pageable).map(mapper::toDTO);
     }
 
     @Override
-    public Stream<E> findAll() {
+    public Stream<D> findAll() {
         return null;
     }
 
     @Override
-    public Optional<E> findByKey(K id) {
-        return repository.findById(id);
+    public Optional<D> findByKey(K id) {
+        return repository.findById(id).map(mapper::toDTO);
     }
 
     @Override
@@ -53,8 +57,8 @@ public class GenericService<E, K> implements IGenericService<E, K> {
     }
 
     @Override
-    public void removeAll(List<E> entities) {
-        repository.deleteAll(entities);
+    public void removeAll(List<D> dtos) {
+        repository.deleteAll(mapper.toEntityList(dtos));
     }
 
 }
