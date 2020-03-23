@@ -40,13 +40,12 @@ public class Auditing<U> {
     @Column(name = "status", nullable = false)
     private String status = ACTIVE;
 
-   /* @PrePersist
+    @PrePersist
     public void onPrePersist() {
-        this.createdBy = (U) "Administrator";
-        this.createdOn = new Date();
         this.status = ACTIVE;
     }
 
+    /*
     @PreUpdate
     public void onPreUpdate() {
         this.updatedBy = (U) "Administrator";

@@ -6,7 +6,7 @@ public class BaseDTO {
 
     private Long id;
 
-    private String status;
+    private String status = ACTIVE;
 
     public Long getId() {
         return id;
